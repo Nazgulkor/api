@@ -15,6 +15,7 @@ class CarsController extends Controller
     {
         return new CarCollection(Car::with('user')->get());
     }
+    
     public function getCar(Request $request)
     {
         try {
@@ -33,6 +34,7 @@ class CarsController extends Controller
         $car->save();
         return new CarResource(Car::with('user')->find($car->id));
     }
+    
     public function freeCar(Request $request)
     {
         $car = Car::findOrFail($request->id);
